@@ -1,8 +1,10 @@
 import { useRef } from "react"
 
 
-export default function Photo({click,changeClick}){
-    console.log(click)
+export default function Photo({click,changeClick,seletValue,Add}){
+    console.log(seletValue)
+    console.log(Math.floor(Math.random() *3))
+
 
     let photoOne=useRef(null)
     let photoTwo=useRef(null)
@@ -138,11 +140,84 @@ export default function Photo({click,changeClick}){
            
     }
     if(click){
+
+        //for animation
         if(photoOne.current ||photoTwo.current){
          repetitionPhotoOne()
          repetitionPhotoTwo()
 
         }
+        
+        //show photo with your select
+        setTimeout(()=>{
+   if(photoOne.current ||photoTwo.current){
+         if(seletValue==="paper"){
+         photoOne.current.src="/paper.png"
+        }else if(seletValue==="scissors"){
+         photoOne.current.src="/scissors.png"
+
+        }else if(seletValue==="rock"){
+        photoOne.current.src="/rock.png"
+
+
+         }
+        }
+
+        },1700)
+
+        //computer choose
+
+let randomChoose=Math.floor(Math.random() *3)
+    let ChooseComputer=["rock","scissors","paper"]
+
+    let computer=ChooseComputer[randomChoose]
+    console.log(`computer choosee this ${computer}`)
+
+           setTimeout(()=>{
+   if(photoOne.current ||photoTwo.current){
+         if(computer==="paper"){
+         photoTwo.current.src="/paper.png"
+        }else if(computer==="scissors"){
+         photoTwo.current.src="/scissors.png"
+
+        }else if(computer==="rock"){
+        photoTwo.current.src="/rock.png"
+
+
+         }
+        }
+
+
+        ///who win ?
+    console.log(`computer choosee this ${computer} and user choose is ${seletValue}`)
+
+if(seletValue==="paper" && computer==="rock"){
+Add(1,0)
+}else if(seletValue==="paper" && computer==="scissors"){
+Add(0,1)
+}else if(seletValue==="paper" && computer==="paper"){
+Add(0,0)
+}else if(seletValue==="rock" && computer==="paper"){
+    Add(0,1)
+}else if(seletValue==="rock" && computer==="scissors"){
+    Add(1,0)
+}else if (seletValue==="rock" && computer==="rock"){
+Add(0,0)
+}else if(seletValue==="scissors" && computer==="rock"){
+    Add(0,1)
+}else if(seletValue==="scissors" && computer==="paper"){
+    Add(1,0)
+}else if(seletValue==="scissors" && computer==="scissors"){
+    Add(0,0)
+}
+
+        },1700)
+
+
+setTimeout(()=>{
+        changeClick(false)
+ 
+},1900)
     }
     return (
         <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
