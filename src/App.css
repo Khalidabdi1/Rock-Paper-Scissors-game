@@ -101,7 +101,8 @@ button {
   border-radius: var(--radius-sm);
   border: var(--border);
   width: 200px;
-  height: 200px;
+  height: 50px;
+  cursor: pointer;
 } 
 
 .card-photo{
@@ -134,4 +135,21 @@ background-color: var(--secondary);
 padding: 10px;
 border: var(--border);
 border-radius: var(--radius-sm);
+}
+
+select{
+    background-color:var(--card);
+  color: var(--accent-foreground);
+  border-radius: var(--radius-sm);
+  border: var(--border);
+  width: 200px;
+ height: 50px;
+ padding: 5px;
+  cursor: pointer;
+}
+
+select:focus{
+    border-radius: var(--radius-sm);
+  border: var(--border);
+  outline: none;
 }
