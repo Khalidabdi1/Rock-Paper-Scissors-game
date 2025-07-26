@@ -103,3 +103,35 @@ button {
   width: 200px;
   height: 200px;
 } 
+
+.card-photo{
+  background-color: var(--card);
+  color:var(--card-foreground);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+}
+
+h3{
+  color: var(--primary);
+}
+
+.Result-title-one{
+  margin: 5px;
+}
+.Result-one{
+background-color: var(--card);
+padding: 2px;
+margin-bottom: 5px;
+border: var(--border);
+border-radius: var(--radius-lg);
+width: 200px;
+height: fit-content;
+margin-top: 10px;
+}
+
+.Result-one-inside{
+background-color: var(--secondary);
+padding: 10px;
+border: var(--border);
+border-radius: var(--radius-sm);
+}
