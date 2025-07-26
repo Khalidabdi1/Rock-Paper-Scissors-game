@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 
-export default function MultipleSelect() {
+export default function MultipleSelect({getSelection}) {
  const [select,setSelect]=useState(" ")
-console.log(select)
+ getSelection(select)
   return (
     <div style={{margin:"10px",display:"flex",alignItems:"center",justifyContent:"center"}}>
        <h3 style={{marginRight:"10px"}}>Choose one :</h3>
@@ -15,7 +15,7 @@ console.log(select)
 
 
       </select>
-      
+
       
     </div>
   );

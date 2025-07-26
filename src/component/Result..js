@@ -1,7 +1,7 @@
 
 
 
-export default function Result(){
+export default function Result({user,computer}){
     return (
       <div style={{display:"flex",alignItems:"center",justifyContent:"space-around"}}>
         <div className="Result-one">
@@ -11,7 +11,7 @@ export default function Result(){
             <div className="Result-one-inside">
               
                 <h3 style={{textAlign:"center"}}>
-                    0
+                   {user}
                 </h3>
             </div>
          </div>
@@ -22,7 +22,7 @@ export default function Result(){
                 </h3>
              <div className="Result-one-inside">
                 <h3 style={{textAlign:"center"}}>
-                    0
+                    {computer}
                 </h3>
             </div>
         </div>
