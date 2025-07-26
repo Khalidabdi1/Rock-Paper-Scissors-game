@@ -2,13 +2,15 @@ import { useRef } from "react"
 
 
 export default function Photo({click,changeClick,seletValue,Add}){
-    console.log(seletValue)
-    console.log(Math.floor(Math.random() *3))
 
 
     let photoOne=useRef(null)
     let photoTwo=useRef(null)
+let randomChoose=Math.floor(Math.random() *3)
+    let ChooseComputer=["rock","scissors","paper"]
 
+    let computer=ChooseComputer[randomChoose]
+    
 
     function repetitionPhotoOne(){
  setTimeout(()=>{
@@ -167,11 +169,7 @@ export default function Photo({click,changeClick,seletValue,Add}){
 
         //computer choose
 
-let randomChoose=Math.floor(Math.random() *3)
-    let ChooseComputer=["rock","scissors","paper"]
 
-    let computer=ChooseComputer[randomChoose]
-    console.log(`computer choosee this ${computer}`)
 
            setTimeout(()=>{
    if(photoOne.current ||photoTwo.current){
@@ -211,13 +209,13 @@ Add(0,0)
     Add(0,0)
 }
 
-        },1700)
+        },1800)
 
 
 setTimeout(()=>{
         changeClick(false)
  
-},1900)
+},2000)
     }
     return (
         <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
