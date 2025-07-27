@@ -105,6 +105,11 @@ button {
   cursor: pointer;
 } 
 
+button:disabled{
+  background-color: red;
+  cursor:default;
+}
+
 .card-photo{
   background-color: var(--card);
   color:var(--card-foreground);
@@ -152,4 +157,53 @@ select:focus{
     border-radius: var(--radius-sm);
   border: var(--border);
   outline: none;
+}
+
+
+{/* i need to fix this later*/}
+
+@media (max-width:414px){
+  body{
+
+  }
+
+  .card-photo{
+    display: flex ;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0px !important;
+    min-height: 60vh;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0px;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0px !important;
+     overflow: scroll;
+  }
+
+  img{
+    margin: 0px !important;
+  }
+
+  .card-continer{
+   min-height: 70vh;
+
+     
+
+    
+
+  }
+
+   .img-one{
+    display: flex !important;
+    width: 100% !important;
+   
+  }
+  .img-two {
+    display: flex !important;
+   
+  }
+
+ 
 }

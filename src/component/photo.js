@@ -1,16 +1,75 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 
 export default function Photo({click,changeClick,seletValue,Add}){
 
-
+let [computer,setComputer]=useState(null)
     let photoOne=useRef(null)
     let photoTwo=useRef(null)
-let randomChoose=Math.floor(Math.random() *3)
-    let ChooseComputer=["rock","scissors","paper"]
 
-    let computer=ChooseComputer[randomChoose]
+
+
+
+    useEffect(()=>{
+          
+        if(click){
+
+  let ChooseComputer=["rock","scissors","paper"]
+    let randomChoose=Math.floor(Math.random() *3)
+    let computerValue=ChooseComputer[randomChoose]
+
+        console.log(computer)
+setComputer(computerValue)
+
+
+console.log("useEffect reRender")
+setTimeout(()=>{
+  
+
+console.log("reRender photo")
+        ///who win ?
     
+    console.log(`computerValue choosee this ${computerValue} and user choose is ${seletValue}`)
+  
+
+if(seletValue==="paper" && computerValue==="rock"){
+Add(1,0)
+}else if(seletValue==="paper" && computerValue==="scissors"){
+Add(0,1)
+}else if(seletValue==="paper" && computerValue==="paper"){
+Add(0,0)
+}else if(seletValue==="rock" && computerValue==="paper"){
+    Add(0,1)
+}else if(seletValue==="rock" && computerValue==="scissors"){
+    Add(1,0)
+}else if (seletValue==="rock" && computerValue==="rock"){
+Add(0,0)
+}else if(seletValue==="scissors" && computerValue==="rock"){
+    Add(0,1)
+}else if(seletValue==="scissors" && computerValue==="paper"){
+    Add(1,0)
+}else if(seletValue==="scissors" && computerValue==="scissors"){
+    Add(0,0)
+}
+
+
+        },1800)
+    
+
+
+
+        }
+
+
+
+
+
+
+
+
+    },[click])
+    
+
 
     function repetitionPhotoOne(){
  setTimeout(()=>{
@@ -166,13 +225,10 @@ let randomChoose=Math.floor(Math.random() *3)
         }
 
         },1700)
+        //computerValue choose
 
-        //computer choose
-
-
-
-           setTimeout(()=>{
-   if(photoOne.current ||photoTwo.current){
+        setTimeout(()=>{
+               if(photoOne.current ||photoTwo.current){
          if(computer==="paper"){
          photoTwo.current.src="/paper.png"
         }else if(computer==="scissors"){
@@ -184,50 +240,31 @@ let randomChoose=Math.floor(Math.random() *3)
 
          }
         }
+        },1700)
 
 
-        ///who win ?
-    console.log(`computer choosee this ${computer} and user choose is ${seletValue}`)
 
-if(seletValue==="paper" && computer==="rock"){
-Add(1,0)
-}else if(seletValue==="paper" && computer==="scissors"){
-Add(0,1)
-}else if(seletValue==="paper" && computer==="paper"){
-Add(0,0)
-}else if(seletValue==="rock" && computer==="paper"){
-    Add(0,1)
-}else if(seletValue==="rock" && computer==="scissors"){
-    Add(1,0)
-}else if (seletValue==="rock" && computer==="rock"){
-Add(0,0)
-}else if(seletValue==="scissors" && computer==="rock"){
-    Add(0,1)
-}else if(seletValue==="scissors" && computer==="paper"){
-    Add(1,0)
-}else if(seletValue==="scissors" && computer==="scissors"){
-    Add(0,0)
-}
-
-        },1800)
+        
+       
 
 
 setTimeout(()=>{
         changeClick(false)
  
 },2000)
+
     }
     return (
-        <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+        <div className="card-continer" style={{display:"flex",alignItems:"center",justifyContent:"center",height:"400px"}}>
         <div className="card-photo" style={{display:"flex" ,width:"90%",height:"400px",justifyContent:"space-between"}}>
 
-            <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
-            <img src="/paper.png" alt="paper" style={{width:"300px",height:"300px"}} ref={photoOne}></img>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}} className="img-one">
+            <img src="/paper.png" alt="paper" style={{width:"300px",height:"300px"}} ref={photoOne} ></img>
             <h3>You</h3>
             </div>
 
-            <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
-            <img src="/paper.png" alt="paper" style={{width:"300px",height:"300px"}} ref={photoTwo}></img>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}} className="img-two">
+            <img src="/paper.png" alt="paper" style={{width:"300px",height:"300px"}} ref={photoTwo} ></img>
              <h3>computer</h3>
 
             </div>

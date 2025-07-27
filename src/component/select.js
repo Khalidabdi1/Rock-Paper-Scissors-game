@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 export default function MultipleSelect({getSelection}) {
  const [select,setSelect]=useState("")
- console.log(`from select ${select}`)
 
  useEffect(()=>{
 

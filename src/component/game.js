@@ -12,17 +12,18 @@ const[select,setSelect]=useState("")
 //value from select 
 function getSelection(value){
     setSelect(value)
-    console.log(`form app ${value}`)
 }
-console.log(userResult)
+
 
 function AddToResult(addUser,addComputer){
-setUserResult(userResult+addUser)
+    setTimeout(() => {
+        setUserResult(userResult+addUser)
 setComputerResult(computerResult+addComputer)
-}
+    }, 1600);
 
+}
     return(
-    <>
+   
    
    <div>
     <Result user={userResult} computer={computerResult}/>
@@ -30,7 +31,7 @@ setComputerResult(computerResult+addComputer)
     <MultipleSelect getSelection={getSelection}/>
 
     <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
-    <button onClick={()=>{
+    <button disabled={handleClick? true:false} onClick={()=>{
      
         setHandleClick(true)
        
@@ -39,7 +40,7 @@ setComputerResult(computerResult+addComputer)
 
    </div>
 
-    </>
+  
 
     )
 }
