@@ -4,7 +4,8 @@ This is a simple game powered by React.
 
 ## 📸 Screenshots of the Game
 
-[Game Interface](/game.png)
+
+![Game Interface](./public/game.png)
 
 ## 🎮 How to Play
 
